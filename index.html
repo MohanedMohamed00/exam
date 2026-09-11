@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="color-scheme" content="dark" />
+  <title>English Quiz Bank — بنك أسئلة الإنجليزي</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&family=Outfit:wght@500;600;700;800&family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Manrope:wght@500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="bg-aura" aria-hidden="true"></div>
+  <div class="bg-grid" aria-hidden="true"></div>
+
+  <header class="topbar">
+    <div class="brand">
+      <span class="brand-mark" aria-hidden="true">EQ</span>
+      <div>
+        <strong>English Quiz Bank</strong>
+        <small>بنك أسئلة المفردات واللغة</small>
+      </div>
+    </div>
+    <div class="top-stats" id="topStats" hidden>
+      <span id="progressLabel">0 / 0</span>
+      <span class="dot">·</span>
+      <span id="scoreLabel">صح: 0</span>
+    </div>
+  </header>
+
+  <main>
+    <section class="panel setup" id="setupPanel">
+      <p class="eyebrow">781 سؤال · 4 مصادر</p>
+      <h1>English Quiz Bank</h1>
+      <p class="lede">اختبر نفسك على أسئلة الامتحانات الحقيقية. اختر المصدر والوضع، ثم ابدأ — الإجابات مضمّنة من ملفات الامتحان.</p>
+
+      <div class="field">
+        <label>المصدر</label>
+        <div class="chips" id="sourceChips" role="group" aria-label="مصدر الأسئلة"></div>
+      </div>
+
+      <div class="field-row">
+        <div class="field">
+          <label for="modeSelect">الوضع</label>
+          <select id="modeSelect">
+            <option value="practice">تدريب — تصحيح فوري</option>
+            <option value="exam">امتحان — النتيجة في النهاية</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="countSelect">عدد الأسئلة</label>
+          <select id="countSelect">
+            <option value="10">10</option>
+            <option value="20" selected>20</option>
+            <option value="50">50</option>
+            <option value="all">الكل</option>
+          </select>
+        </div>
+      </div>
+
+      <label class="check">
+        <input type="checkbox" id="shuffleToggle" checked />
+        ترتيب عشوائي
+      </label>
+
+      <p class="pool-info" id="poolInfo">جاري التحميل…</p>
+
+      <button type="button" class="btn primary" id="startBtn">ابدأ الاختبار</button>
+    </section>
+
+    <section class="quiz-wrap" id="quizPanel" hidden>
+      <div class="quiz-sticky">
+        <div class="quiz-meta">
+          <span class="badge" id="sourceBadge"></span>
+          <span id="qCounter"></span>
+        </div>
+        <div class="progress-track" aria-hidden="true">
+          <div class="progress-fill" id="progressFill"></div>
+        </div>
+      </div>
+
+      <div class="questions-list" id="questionsList"></div>
+
+      <div class="quiz-actions sticky-actions">
+        <button type="button" class="btn ghost" id="quitBtn">رجوع</button>
+        <button type="button" class="btn primary" id="submitBtn">تصحيح الإجابات</button>
+      </div>
+    </section>
+
+    <section class="panel results" id="resultsPanel" hidden>
+      <h1>النتيجة</h1>
+      <div class="score-ring" id="scoreRing">
+        <strong id="percentValue">0%</strong>
+        <span id="scoreDetail">0 من 0</span>
+      </div>
+      <p class="result-msg" id="resultMsg"></p>
+      <div class="review" id="reviewList"></div>
+      <div class="quiz-actions">
+        <button type="button" class="btn ghost" id="homeBtn">العودة للبداية</button>
+        <button type="button" class="btn primary" id="retryBtn">إعادة نفس المجموعة</button>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <span id="footerCount"></span>
+    <span class="footer-sep">·</span>
+    <span class="designer">مصمم الموقع: مهند محمد</span>
+  </footer>
+
+  <script src="questions.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
